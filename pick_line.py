@@ -1,13 +1,4 @@
-"""
-Click two points on the doorway to define the entry line.
 
-    python pick_line.py
-
-Left click  = set point 1, then point 2
-r           = reset points
-ENTER / s   = save to config.json and quit
-ESC         = quit without saving
-"""
 
 import json
 import os
