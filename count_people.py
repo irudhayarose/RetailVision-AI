@@ -1,24 +1,4 @@
-"""
-LEGACY (v1) store footfall counter: detect -> track -> line-crossing -> annotate.
 
-This is the first build, kept for comparison. It counts on threshold crossings
-and writes to ``output_v1/``. The submitted system is ``store_monitor.py``
-(``retail/`` package), which only changes occupancy on verified events and keeps
-a per-person state machine; see README.md.
-
-Pipeline
-    1. YOLOv8n detects people (COCO class 0) on every frame.
-    2. ByteTrack assigns a persistent ID to each person.
-    3. Each track's *feet* anchor (bbox bottom-centre) is tested against a
-       virtual entry line. A crossing is confirmed only after the anchor has
-       moved beyond a dead-band, in the opposite direction to its last event.
-    4. Headcount = IN - OUT. Everything is written to video + CSV.
-
-Usage
-    python count_people.py                       # full run -> output_v1/
-    python count_people.py --seconds 20          # quick verification render
-    python count_people.py --analyze             # where do tracks start/end?
-"""
 
 import argparse
 import csv
@@ -97,10 +77,6 @@ class Track:
         self.flash_until = -1
         self.last_event_frame = -10 ** 9
 
-
-# --------------------------------------------------------------------------- #
-# drawing helpers
-# --------------------------------------------------------------------------- #
 COL_INT = (80, 220, 80)      # green
 COL_OUT = (70, 70, 235)      # red
 COL_IDLE = (200, 190, 90)    # teal-ish
@@ -417,28 +393,7 @@ def main():
             seeded = True
             print(f"  [warmup {frame_idx / fps:.1f}s] audit seed recorded = {seed_value}")
 
-        # ---- appearance-based entry counting: door-strip presence -----------------
-        # A late-detected entrant (grouped simultaneous entry, someone the detector
-        # finds only once they are well inside) never produces a committed crossing,
-        # so the crossing counter misses them. Two prior designs failed and are
-        # recorded here: firing on *new tracks* over-counted 31-in-30 s (ByteTrack
-        # churn — a regained person looks identical to a new arrival), and an
-        # aggregate trailing-max ratchet fired 15-in-111 s (visibility noise of
-        # +-3-4 behind shelving dwarfs a +-1 arrival, so no aggregate rule can
-        # separate them; it also reverted to 0 fires at a stricter threshold).
-        # The shipped rule is LOCAL: genuine entrants must appear on the inside
-        # side **of the door strip** (x in appear_strip_x, d >= strip_d_min) —
-        # regains of people lost behind shelving happen deep inside, away from the
-        # door. A presence cluster sustained >= appear_confirm_frames, born into a
-        # spot no inside anchor occupied within lookback_and-radius (kills churn
-        # regains), born after warm-up (kills initial occupancy), and without a
-        # committed IN in the preceding credit window (the crossing already
-        # explained it), is confirmed ~appear_cancel_s later unless the cluster's
-        # minimum signed distance dipped outward meanwhile — someone whose anchor
-        # moves out through the gate within that window is a LEAVER who was never
-        # counted entering (the audit's 90-92 s window is exactly this), and firing
-        # them would convert an exit into an entry. Confirmed clusters fire one IN
-        # each (IDs 5000+) timed at the cluster's birth.
+      
         for tr in current:
             a = tr.trail[-1]
             d = signed_distance(a, p1, p2)
