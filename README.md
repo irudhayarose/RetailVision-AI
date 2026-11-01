@@ -100,7 +100,6 @@ person to survive an ID change without being re-counted.
 
 | State | Meaning | Can change occupancy? |
 |---|---|---|
-| `UNKNOWN` | detected, side not yet resolved | no |
 | `APPROACHING_ENTRY` | clearly outside, moving toward the gate | no |
 | `ENTERED` | a verified entry just happened | **+1 (already applied)** |
 | `INSIDE` | verified member of the store population | no |
