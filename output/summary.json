@@ -1,0 +1,106 @@
+{
+  "system": "retail-occupancy-v2 (state machine, verified events)",
+  "video": "video.f398.mp4",
+  "frames_processed": 1452,
+  "duration_s": 110.9,
+  "fps_source": 13.09,
+  "occupancy_confirmed_final": 11,
+  "visible_now_final": 6,
+  "peak_occupancy": 12,
+  "initial_occupancy_seeded": 7,
+  "seeded_at_frame": 39,
+  "seeded_pids": [
+    1,
+    2,
+    3,
+    5,
+    6,
+    7,
+    8
+  ],
+  "entries_total": 7,
+  "entry_crossings": 3,
+  "entry_appearance": 2,
+  "entry_reid": 0,
+  "exits_total": 3,
+  "reentries_total": 1,
+  "unique_visitors": 6,
+  "unique_visitors_seen_total": 13,
+  "staff_inside": 2,
+  "customers_estimate": 9,
+  "customers_reliable": true,
+  "occluded_now": 0,
+  "uncertain_now": 6,
+  "tracks_total": 54,
+  "events": 37,
+  "event_counts": {
+    "ENTRY": 6,
+    "UNCERTAIN": 18,
+    "REAPPEARED": 9,
+    "EXIT": 3,
+    "REENTRY": 1
+  },
+  "appearance": {
+    "clusters": 14,
+    "fired": 2,
+    "states": {
+      "initial-occupancy": 1,
+      "occupied-area": 6,
+      "fired": 2,
+      "already-inside": 1,
+      "new": 3,
+      "cancelled-exiting": 1
+    }
+  },
+  "camera": {
+    "entrance_fully_visible": true,
+    "line_in_frame": true,
+    "warnings": []
+  },
+  "state_legend": [
+    "APPROACHING_ENTRY",
+    "ENTERED",
+    "INSIDE",
+    "OCCLUDED",
+    "POSSIBLY_EXITED",
+    "EXIT_CONFIRMED",
+    "REAPPEARED",
+    "UNKNOWN"
+  ],
+  "event_legend": [
+    "ENTRY",
+    "EXIT",
+    "REENTRY",
+    "REAPPEARED",
+    "UNCERTAIN"
+  ],
+  "annotated_video": "output\\annotated.mp4",
+  "events_csv": "output\\events.csv",
+  "timeline_csv": "output\\timeline.csv",
+  "runtime_s": 353.5,
+  "throughput_fps": 4.11,
+  "config": {
+    "line": [
+      [
+        1080,
+        238
+      ],
+      [
+        1080,
+        715
+      ]
+    ],
+    "inside_sign": 1,
+    "commit_px": 40.0,
+    "min_event_gap_s": 3.97,
+    "occlusion_hold_s": 8.02,
+    "reid_sim": 0.55,
+    "conf": 0.35,
+    "model": "yolov8n.pt"
+  },
+  "notes": [
+    "INSIDE is the verified-event account: seeded initial occupancy plus verified entries minus verified exits. It never drops because a box disappeared.",
+    "VISIBLE NOW is the detector-visible population inside the line at that instant; it is a measurement and fluctuates with occlusion.",
+    "Rows with detail 'appearance-no-crossing' are entries the gate never witnessed; they keep the person's identity and are not unique-visitor duplicates."
+  ]
+}

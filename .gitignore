@@ -1,0 +1,6 @@
+video.f398.mp4
+yolov8n.pt
+__pycache__/
+**/__pycache__/
+*.pyc
+output_staff_check/

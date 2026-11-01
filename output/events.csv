@@ -1,0 +1,38 @@
+timestamp,person_id,event,headcount,state,confidence,detail
+00:00:03.742,4,ENTRY,8,ENTERED,0.9,committed-inward-crossing
+00:00:05.194,14,ENTRY,9,ENTERED,0.9,committed-inward-crossing
+00:00:05.957,11,ENTRY,10,ENTERED,0.6,late-detected-inside
+00:00:10.234,16,ENTRY,11,ENTERED,0.6,late-detected-inside
+00:00:08.707,18,ENTRY,12,ENTERED,0.6,appearance-no-crossing verified_at=00:00:12.679
+00:00:13.519,14,UNCERTAIN,12,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:16.497,6,UNCERTAIN,12,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:17.414,4,UNCERTAIN,12,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:17.490,14,REAPPEARED,12,REAPPEARED,0.8,reid-occlusion-recovery sim=0.64
+00:00:17.567,14,EXIT,11,EXIT_CONFIRMED,0.9,committed-outward-crossing
+00:00:18.483,18,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:19.705,8,EXIT,10,EXIT_CONFIRMED,0.9,committed-outward-crossing
+00:00:20.240,6,REAPPEARED,10,REAPPEARED,0.8,reid-occlusion-recovery sim=0.60
+00:00:21.309,4,REAPPEARED,10,REAPPEARED,0.8,reid-occlusion-recovery sim=0.68
+00:00:21.538,14,REENTRY,11,ENTERED,0.9,committed-inward-crossing
+00:00:28.565,3,UNCERTAIN,11,REAPPEARED,0.8,staff-classified-dwell-in-staff-zone
+00:00:29.940,4,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:31.544,5,UNCERTAIN,11,INSIDE,0.8,staff-classified-dwell-in-staff-zone
+00:00:33.529,14,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:34.293,7,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:35.897,4,REAPPEARED,11,REAPPEARED,0.8,reid-occlusion-recovery sim=0.59
+00:00:37.043,7,REAPPEARED,11,REAPPEARED,0.8,reid-occlusion-recovery sim=0.74
+00:00:37.654,14,REAPPEARED,11,REAPPEARED,0.8,reid-occlusion-recovery sim=0.74
+00:00:40.480,1,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:53.769,1,REAPPEARED,11,REAPPEARED,0.8,reid-occlusion-recovery sim=0.66
+00:01:03.469,11,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:00:59.879,44,ENTRY,12,ENTERED,0.6,appearance-no-crossing verified_at=00:01:03.851
+00:01:05.226,11,REAPPEARED,12,REAPPEARED,0.8,reid-occlusion-recovery sim=0.57
+00:01:08.434,3,EXIT,11,EXIT_CONFIRMED,0.9,committed-outward-crossing
+00:01:11.336,44,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:01:21.341,44,REAPPEARED,11,REAPPEARED,0.8,reid-occlusion-recovery sim=0.62
+00:01:22.792,16,UNCERTAIN,11,INSIDE,0.8,staff-classified-dwell-in-staff-zone
+00:01:29.208,4,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:01:30.965,7,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:01:37.609,1,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:01:42.421,16,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
+00:01:45.476,5,UNCERTAIN,11,POSSIBLY_EXITED,0.4,missing-inside-no-exit-evidence
